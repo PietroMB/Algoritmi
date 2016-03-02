@@ -46,6 +46,7 @@ int contaValori(lista l, int val){
 }
 
 int main(int argc, char const *argv[]) {
+    system("clear");
     lista l1 = malloc(sizeof(struct liste));
     l1=crealista(l1);
     leggilista(l1);
