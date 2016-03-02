@@ -4,7 +4,7 @@
 #define max 80
 
 int main() {
-      system("clear");
+    system("clear");
     char st[]="ciao mondo",inv[max],stack[max],data;
     int top=0;
 
