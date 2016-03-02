@@ -6,9 +6,10 @@
 //len è il numero di elementi da inserire 
 
 int main(int argc, char const *argv[]) {
+    system("clear"); //pulisce la finestra terminale nei sistemi UNIX-like
     int t[1000], i, len=20;
 
-    srand(time(NULL));
+    srand(time(NULL)); // necessaria per generare numeri pseudo randomici
 
     for (i = 0; i < 1000; i++)
         t[i] = NULL;
