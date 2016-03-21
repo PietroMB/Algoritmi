@@ -1,0 +1,6 @@
+    srand(time(NULL));
+    clock_t b=clock();
+    int a=rand()%100; //crea un randomico e mi dice il tempo di esecuzione cpu
+    clock_t c=clock();
+    double f=(double)(c-b)/CLOCKS_PER_SEC;
+    printf("\ntempo: %lf\n", f);
