@@ -10,7 +10,7 @@ struct elementi{
 };
 
 elemento inserisci(elemento e, int d){
-    while (e->next != NULL) {
+    while (e != NULL) {
         e=e->next;
     }
     e->dato=d;
@@ -20,7 +20,7 @@ elemento inserisci(elemento e, int d){
 }
 
 void stampa(elemento e){
-    while (e->next != NULL) {
+    while (e != NULL) {
         printf("%d ", e->dato);
         e=e->next;
     }
