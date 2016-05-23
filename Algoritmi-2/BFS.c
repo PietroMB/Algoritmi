@@ -1,6 +1,6 @@
 #include<stdio.h>
 #include<stdlib.h>
- 
+
 #define MAX 100
 
 #define initial 1
@@ -10,19 +10,31 @@
 int n;
 int adj[MAX][MAX];
 int state[MAX];
-void create_graph();
-void BF_Traversal();
-void BFS(int v);
+///////////////////////////////////////////////////////
+////////////////Graph part//////////////////////////
+/////////////////////////////////////////////////////
+void create_graph(){
+    int count,max_edge,origin,destin;
 
-int queue[MAX], front = -1,rear = -1;
-void insert_queue(int vertex);
-int delete_queue();
-int isEmpty_queue();
+    printf("Enter number of vertices : ");
+    scanf("%d",&n);
+    max_edge = n*(n-1);
 
-int main(){
-    create_graph();
-    BF_Traversal();
-    return 0;
+    for(count=1; count<=max_edge; count++){
+        printf("Enter edge %d( -1 -1 to quit ) : ",count);
+        scanf("%d %d",&origin,&destin);
+
+        if((origin == -1) && (destin == -1))
+            break;
+
+        if(origin>=n || destin>=n || origin<0 || destin<0){
+            printf("Invalid edge!\n");
+            count--;
+        }
+        else
+            adj[origin][destin] = 1;
+
+    }
 }
 
 void BF_Traversal(){
@@ -58,6 +70,12 @@ void BFS(int v){
     printf("\n");
 }
 
+///////////////////////////////////////////////////////
+////////////////Queue part//////////////////////////
+/////////////////////////////////////////////////////
+
+int queue[MAX], front = -1,rear = -1;
+
 void insert_queue(int vertex){
     if(rear == MAX-1)
         printf("Queue Overflow\n");
@@ -88,26 +106,8 @@ int delete_queue(){
     return delete_item;
 }
 
-void create_graph(){
-    int count,max_edge,origin,destin;
-
-    printf("Enter number of vertices : ");
-    scanf("%d",&n);
-    max_edge = n*(n-1);
-
-    for(count=1; count<=max_edge; count++){
-        printf("Enter edge %d( -1 -1 to quit ) : ",count);
-        scanf("%d %d",&origin,&destin);
-
-        if((origin == -1) && (destin == -1))
-            break;
-
-        if(origin>=n || destin>=n || origin<0 || destin<0){
-            printf("Invalid edge!\n");
-            count--;
-        }
-        else
-            adj[origin][destin] = 1;
-
-    }
+int main(){
+    create_graph();
+    BF_Traversal();
+    return 0;
 }
