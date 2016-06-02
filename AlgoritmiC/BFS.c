@@ -109,5 +109,6 @@ int delete_queue(){
 int main(){
     create_graph();
     BF_Traversal();
+    system("read -n1 -r -p enter_to_exit ");
     return 0;
 }
